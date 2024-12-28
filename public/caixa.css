@@ -1,0 +1,28 @@
+.venda-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        .produtos-lista {
+            border: 1px solid #ddd;
+            padding: 15px;
+            min-height: 400px;
+        }
+        .pagamento-container {
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+        .item-venda {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr auto;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        .totais {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    

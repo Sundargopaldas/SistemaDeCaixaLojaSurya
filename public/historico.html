@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Vendas - Loja Esotérica</title>
+    <link rel="stylesheet" href="historico.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Histórico de Vendas</h1>
+        
+        <!-- Botões de Navegação -->
+        <div class="nav-buttons">
+            <button onclick="mostrarVendasDia()">Vendas do Dia</button>
+            <button onclick="mostrarVendasMes()">Vendas do Mês</button>
+        </div>
+
+        <!-- Tabela de Vendas do Dia -->
+        <div id="vendas-dia" class="tabela-container">
+            <h2>Vendas do Dia</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Produtos</th>
+                        <th>Pagamento</th>
+                        <th>Total</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="vendas-dia-tbody">
+                    <!-- Preenchido via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tabela de Vendas do Mês -->
+        <div id="vendas-mes" class="tabela-container" style="display: none;">
+            <h2>Vendas do Mês</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Total de Vendas</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody id="vendas-mes-tbody">
+                    <!-- Preenchido via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes -->
+    <div id="modal-detalhes" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal">&times;</span>
+            <div id="detalhes-venda">
+                <!-- Preenchido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="historico.js"></script>
+</body>
+</html>

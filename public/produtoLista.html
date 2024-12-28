@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Listagem de Produtos</title>
+   <link rel="stylesheet" href="produtolista.css">
+</head>
+<body>
+   <div class="produtos-container">
+       <nav class="menu">
+           <a href="/produtos.html" class="btn-lista">Cadastrar Novo Produto</a>
+       </nav>
+       <div class="filtros">
+           <h2>Lista de Produtos</h2>
+           <select id="filtroCategoria">
+               <option value="">Todas as categorias</option>
+               <option value="Incensos">Incensos</option>
+               <option value="Pedras">Pedras</option>
+               <option value="Pingentes">Pingentes</option>
+               <option value="Anéis">Anéis</option>
+               <option value="Pulseiras">Pulseiras</option>
+               <option value="Imagens">Imagens</option>
+               <option value="Óleos">Óleos</option>
+               <option value="Essências">Essências</option>
+               <option value="Incensários">Incensários</option>
+               <option value="Sinos de Vento">Sinos de Vento</option>
+               <option value="Colchas">Colchas</option>
+               <option value="Panos">Panos</option>
+               <option value="Duendes">Duendes</option>
+               <option value="Bruxas">Bruxas</option>
+               <option value="Fadas">Fadas</option>
+               <option value="Livros">Livros</option>
+               <option value="Oráculos">Oráculos</option>
+               <option value="Mandalas">Mandalas</option>
+               <option value="Prismas">Prismas</option>
+               <option value="Roupas Indianas">Roupas Indianas</option>
+               <option value="Fontes">Fontes</option>
+           </select>
+       </div>
+       <div id="listaProdutos" class="produto-lista"></div>
+
+       <!-- Modal Editar -->
+       <div id="editModal" class="modal">
+           <div class="modal-content">
+               <h2>Editar Produto</h2>
+               <form id="editForm">
+                   <select name="categoria_id" required>
+                       <option value="">Selecione uma categoria</option>
+                       <option value="1">Incensos</option>
+                       <option value="2">Pedras</option>
+                       <option value="3">Pingentes</option>
+                       <option value="4">Anéis</option>
+                       <option value="5">Pulseiras</option>
+                       <option value="6">Imagens</option>
+                       <option value="7">Óleos</option>
+                       <option value="8">Essências</option>
+                       <option value="9">Incensários</option>
+                       <option value="10">Sinos de Vento</option>
+                       <option value="11">Colchas</option>
+                       <option value="12">Panos</option>
+                       <option value="13">Duendes</option>
+                       <option value="14">Bruxas</option>
+                       <option value="15">Fadas</option>
+                       <option value="16">Livros</option>
+                       <option value="17">Oráculos</option>
+                       <option value="18">Mandalas</option>
+                       <option value="19">Prismas</option>
+                       <option value="20">Roupas Indianas</option>
+                       <option value="21">Fontes</option>
+                   </select>
+                   <input type="text" name="nome" placeholder="Nome do produto" required>
+                   <input type="number" name="preco" placeholder="Preço" step="0.01" required>
+                   <input type="number" name="estoque" placeholder="Estoque" required>
+                   <div class="modal-buttons">
+                       <button type="submit">Salvar</button>
+                       <button type="button" onclick="closeModal()">Cancelar</button>
+                   </div>
+               </form>
+           </div>
+       </div>
+   </div>
+   <script src="produtoLista.js"></script>
+</body>
+</html>
