@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="historico.css">
 </head>
 <body>
+<div class="nav-menu">
+    <a href="/caixa">Caixa</a>
+    <a href="/historico" class="active">Histórico</a>
+    <a href="/produtos">Produtos</a>
+    <a href="/listaDeClientes">Clientes</a>
+    <a href="/cadastroDeClientes" class="active">Novo Cliente</a>
+     
+</div>
+
+
+
     <div class="container">
         <h1>Histórico de Vendas</h1>
         
@@ -62,7 +73,14 @@
             </div>
         </div>
     </div>
+    <!-- Modal de Detalhes -->
+<div id="modal-detalhes" class="modal">
+    <div class="modal-content">
+        <span class="fechar-modal">&times;</span>
+        <div id="detalhes-venda"></div>
+    </div>
+</div>
 
-    <script src="historico.js"></script>
+    <script src="js/historico.js"></script>
 </body>
 </html>

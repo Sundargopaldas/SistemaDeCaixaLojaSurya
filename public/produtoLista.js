@@ -19,7 +19,7 @@ function atualizarListagem(produtos) {
                 <strong class="categoria">${p.categoria}</strong>
                 <div class="nome">${p.nome}</div>
                 <div class="preco">Preço: R$ ${Number(p.preco).toFixed(2)}</div>
-                <div class="estoque">Estoque: ${p.estoque}</div>
+                <div class="estoque">Estoque: ${p.quantidade}</div>
                 <div class="acoes">
                     <button onclick="editarProduto(${p.id})">Editar</button>
                     <button onclick="excluirProduto(${p.id})" class="excluir">Excluir</button>
@@ -66,7 +66,7 @@ function editarProduto(id) {
 
     form.nome.value = produto.nome || '';
     form.preco.value = produto.preco || '';
-    form.estoque.value = produto.estoque || '';
+    form.quantidade.value = produto.quantidade || 0;
     form.categoria_id.value = produto.categoria_id || '';
     
     document.getElementById('editModal').style.display = 'block';
@@ -77,11 +77,11 @@ async function salvarEdicao(e, id) {
     e.preventDefault();
     const form = e.target;
     const produto = {
-        nome: form.nome.value,
-        preco: parseFloat(form.preco.value),
-        estoque: parseInt(form.estoque.value),
-        categoria_id: parseInt(form.categoria_id.value)
-    };
+    nome: form.nome.value,
+    preco: parseFloat(form.preco.value),
+    quantidade: parseInt(form.quantidade.value),
+    categoria_id: parseInt(form.categoria_id.value)
+};
 
     try {
         const response = await fetch(`/api/produtos/${id}`, {

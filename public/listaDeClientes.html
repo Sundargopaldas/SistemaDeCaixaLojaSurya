@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes - Loja Esotérica</title>
+    <link rel="stylesheet" href="listaDeClientes.css">
+</head>
+<body>
+    <div class="nav-menu">
+        <a href="/caixa">Caixa</a>
+        <a href="/historico">Histórico</a>
+        <a href="/produtos">Produtos</a>
+        <a href="/listaDeClientes" class="active">Clientes</a>
+        <a href="/cadastroDeClientes">Novo Cliente</a>
+         <a href="/listaDeFornecedores">Fornecedores</a>
+        <a href="/cadastroDeFornecedores" class="active">Novo Fornecedor
+    </div>
+
+    <div class="container">
+        <h1>Lista de Clientes</h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar cliente...">
+        </div>
+
+        <div class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>Telefone</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="clientesTableBody">
+                    <!-- Preenchido via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Cliente</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                <div class="form-group">
+                    <label for="editNome">Nome:</label>
+                    <input type="text" id="editNome" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEndereco">Endereço:</label>
+                    <input type="text" id="editEndereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="editTelefone">Telefone:</label>
+                    <input type="tel" id="editTelefone" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                    <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/listaDeClientes.js"></script>
+</body>
+</html>

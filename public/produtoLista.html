@@ -40,10 +40,10 @@
 
        <!-- Modal Editar -->
        <div id="editModal" class="modal">
-           <div class="modal-content">
-               <h2>Editar Produto</h2>
-               <form id="editForm">
-                   <select name="categoria_id" required>
+    <div class="modal-content">
+        <h2>Editar Produto</h2>
+        <form id="editForm">
+            <select name="categoria_id" required>
                        <option value="">Selecione uma categoria</option>
                        <option value="1">Incensos</option>
                        <option value="2">Pedras</option>
@@ -68,16 +68,15 @@
                        <option value="21">Fontes</option>
                    </select>
                    <input type="text" name="nome" placeholder="Nome do produto" required>
-                   <input type="number" name="preco" placeholder="Preço" step="0.01" required>
-                   <input type="number" name="estoque" placeholder="Estoque" required>
-                   <div class="modal-buttons">
-                       <button type="submit">Salvar</button>
-                       <button type="button" onclick="closeModal()">Cancelar</button>
-                   </div>
-               </form>
-           </div>
-       </div>
-   </div>
+            <input type="number" name="preco" placeholder="Preço" step="0.01" required>
+            <input type="number" name="quantidade" placeholder="Estoque" required>
+            <div class="modal-buttons">
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="closeModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
    <script src="produtoLista.js"></script>
 </body>
 </html>

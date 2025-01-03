@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Fornecedores - Loja Esotérica</title>
+    <link rel="stylesheet" href="listaDeFornecedores.css">
+</head>
+<body>
+    <div class="nav-menu">
+        <a href="/caixa">Caixa</a>
+        <a href="/historico">Histórico</a>
+        <a href="/produtos">Produtos</a>
+        <a href="/listaDeClientes">Clientes</a>
+        <a href="/listaDeFornecedores" class="active">Fornecedores</a>
+        <a href="/cadastroDeFornecedores">Novo Fornecedor</a>
+    </div>
+
+    <div class="container">
+        <h1>Lista de Fornecedores</h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar fornecedor...">
+        </div>
+
+        <div class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Razão Social</th>
+                        <th>Nome Fantasia</th>
+                        <th>CNPJ</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="fornecedoresTableBody">
+                    <!-- Preenchido via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Fornecedor</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                <div class="form-group">
+                    <label for="editRazaoSocial">Razão Social:</label>
+                    <input type="text" id="editRazaoSocial" required>
+                </div>
+                <div class="form-group">
+                    <label for="editNomeFantasia">Nome Fantasia:</label>
+                    <input type="text" id="editNomeFantasia">
+                </div>
+                <div class="form-group">
+                    <label for="editCnpj">CNPJ:</label>
+                    <input type="text" id="editCnpj" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">E-mail:</label>
+                    <input type="email" id="editEmail">
+                </div>
+                <div class="form-group">
+                    <label for="editTelefone">Telefone:</label>
+                    <input type="tel" id="editTelefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEndereco">Endereço:</label>
+                    <input type="text" id="editEndereco" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                    <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/listaDeFornecedores.js"></script>
+</body>
+</html>

@@ -1,105 +1,118 @@
-/* historico.css */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+
+ .nav-menu {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+}
+
+.nav-menu a.active {
+  background: rgba(12, 1, 1, 0.2);
+}
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.nav-buttons {
-    margin: 20px 0;
-}
-
-.nav-buttons button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.nav-buttons button:hover {
-    background-color: #45a049;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .tabela-container {
-    margin: 20px 0;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: white;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
 }
 
 th {
-    background-color: #f5f5f5;
-    font-weight: bold;
+  background: #f8f9fa;
+  font-weight: 600;
 }
 
-.btn-acao {
-    padding: 5px 10px;
-    margin: 0 5px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+.nav-buttons button {
+  background: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.btn-ver {
-    background-color: #2196F3;
-    color: white;
-}
-
-.btn-cancelar {
-    background-color: #f44336;
-    color: white;
-}
-
-/* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
+  background: rgb(78, 169, 230);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 2rem auto;
+  cursor: pointer;
 }
-
-.fechar-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+/* Adicione ao historico.css */
+.btn-acao {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+    color: white;
+    margin: 0 4px;
 }
 
-.fechar-modal:hover {
-    color: black;
+.btn-ver {
+    background-color: #3498db;
+}
+
+.btn-ver:hover {
+    background-color: #2980b9;
+}
+
+.btn-cancelar {
+    background-color: #e74c3c;
+}
+
+.btn-cancelar:hover {
+    background-color: #c0392b;
 }
 
 .venda-cancelada {
-    color: #f44336;
+    color: #e74c3c;
     font-style: italic;
 }

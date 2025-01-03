@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>Caixa - Loja Esotérica</title>
     <link rel="stylesheet" href="caixa.css">
-    <script src="caixa.js"></script>
-    
+</head>
 <body>
-    
+    <div class="nav-menu">
+        <a href="/caixa" class="active">Caixa</a>
+        <a href="/historico">Histórico</a>
+        <a href="/produtos">Produtos</a>
+        <a href="/listaDeClientes">Clientes</a>
+        <a href="/cadastroDeClientes" class="active">Novo Cliente</a>
+    </div>
 
     <div class="venda-container">
         <div class="produtos-lista">
@@ -38,10 +43,14 @@
             </div>
             <div>
                 <p>Troco: R$ <span id="troco">0.00</span></p>
+                <button id="confirmar-troco" style="display: none;" onclick="confirmarTroco()">Confirmar Entrega do Troco</button>
             </div>
             <button onclick="finalizarVenda()">Finalizar Venda</button>
         </div>
     </div>
-       
-    </body>
-    </html>
+
+    <!-- Corrigindo os caminhos dos scripts -->
+    <script src="/js/vendas.js"></script>
+     <script src="/js/caixa.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes - Loja Esotérica</title>
+    <link rel="stylesheet" href="cadastroDeClientes.css">
+</head>
+<body>
+    <div class="nav-menu">
+        <a href="/caixa">Caixa</a>
+        <a href="/historico">Histórico</a>
+        <a href="/produtos">Produtos</a>
+        <a href="/listaDeClientes">Clientes</a>
+        <a href="/cadastroDeClientes" class="active">Novo Cliente</a>
+         <a href="/listaDeFornecedores">Fornecedores</a>
+        <a href="/cadastroDeFornecedores" class="active">Novo Fornecedor
+    </div>
+
+    <div class="container">
+        <h1>Cadastro de Cliente</h1>
+        
+        <div class="form-container">
+            <form id="clienteForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                    <button type="button" class="btn-cancelar" onclick="window.location.href='/listaDeClientes'">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/cadastroDeClientes.js"></script>
+</body>
+</html>
