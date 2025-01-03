@@ -1,0 +1,126 @@
+.login-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.criar-conta {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.criar-conta a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.criar-conta a:hover {
+    text-decoration: underline;
+}
+body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #4a0080, #0066cc);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-surya {
+            max-width: 400px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-enter {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a0080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .btn-enter:hover {
+            background-color: #3a0066;
+        }
+
+        .criar-conta {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .criar-conta a {
+            color: #4a0080;
+            text-decoration: none;
+        }
+
+        .criar-conta a:hover {
+            text-decoration: underline;
+        }
+    

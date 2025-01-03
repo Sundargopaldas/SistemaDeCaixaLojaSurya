@@ -1,19 +1,52 @@
 body {
     margin: 0;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #2c3e50, #3498db);
     font-family: 'Segoe UI', system-ui, sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+    
 }
 
-h1 {
-    color: white;
-    font-size: 2.5rem;
-    text-align: center;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
+
+
+.logo-surya{
+    width: 100%;
+    
+    
 }
+    
+
+
+.btn-enter {
+    display: block;
+    text-decoration: none;
+    color: rgb(16, 16, 16);
+    margin-top: 500px;
+    margin-left: -250px;
+    text-decoration: none;
+    padding:18px ;
+    width: 100px;
+    background-color: #2042d9;
+    border-radius: 16px;
+}
+.btn-login {
+            padding: 10px 30px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #357abd;
+        }
