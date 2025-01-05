@@ -108,11 +108,12 @@ function formatarHora(data) {
     });
 }
 
-function carregarVendasDia() {
+function carregarVendasDia(data = new Date()) {
+    const dataFormatada = data.toISOString().split('T')[0]; // Formato YYYY-MM-DD
     const tbody = document.getElementById('vendas-dia-tbody');
     tbody.innerHTML = '';
 
-    fetch('/api/vendas/dia')
+    fetch(`/api/vendas/dia?data=${dataFormatada}`)
         .then(response => response.json())
         .then(vendas => {
             vendas.forEach(venda => {
@@ -136,7 +137,6 @@ function carregarVendasDia() {
         })
         .catch(error => console.error('Erro ao carregar vendas:', error));
 }
-
 function carregarVendasMes() {
     const tbody = document.getElementById('vendas-mes-tbody');
     tbody.innerHTML = '';

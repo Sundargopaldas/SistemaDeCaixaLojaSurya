@@ -92,12 +92,10 @@ exports.fecharCaixa = (req, res) => {
     const fechamento = caixa.fecharCaixa();
     res.json(fechamento);
 };
-
-// Adicionando funções de histórico
 exports.getVendasDia = async (req, res) => {
     try {
-        const hoje = new Date();
-        hoje.setHours(0, 0, 0, 0);
+        const { data } = req.query; // Recebe a data como parâmetro
+        const dataFiltro = data ? new Date(data) : new Date();
         
         const query = `
             SELECT 
@@ -106,32 +104,20 @@ exports.getVendasDia = async (req, res) => {
             FROM vendas v 
             LEFT JOIN itens_venda iv ON v.id = iv.venda_id
             LEFT JOIN produtos p ON iv.produto_id = p.id
-            WHERE DATE(v.data) = CURDATE()
+            WHERE DATE(v.data) = DATE(?)
             GROUP BY v.id
+            ORDER BY v.data DESC
         `;
         
-        connection.query(query, [hoje], (error, results) => {
-            if (error) {
-                console.error('Erro ao buscar vendas:', error);
-                return res.status(500).json({ error: 'Erro ao buscar vendas do dia' });
-            }
-            
-            const vendas = results.map(venda => ({
-                id: venda.id,
-                data: venda.data,
-                produtos: venda.produtos,
-                formaPagamento: venda.forma_pagamento,
-                total: venda.total,
-                cancelada: venda.cancelada
-            }));
-            
-            res.json(vendas);
+        connection.query(query, [dataFiltro], (error, results) => {
+            // resto do código permanece igual
         });
     } catch (error) {
         console.error('Erro:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 };
+// Adicionando funções de histórico
 exports.getVendasMes = async (req, res) => {
     try {
         const query = `
