@@ -2,11 +2,12 @@ document.getElementById('clienteForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = {
-        nome: document.getElementById('nome').value,
-        endereco: document.getElementById('endereco').value,
-        telefone: document.getElementById('telefone').value
-    };
-
+    nome: document.getElementById('nome').value,
+    endereco: document.getElementById('endereco').value,
+    telefone: document.getElementById('telefone').value,
+    dataNascimento: document.getElementById('dataNascimento').value
+};
+  console.log('Dados antes do envio:', JSON.stringify(formData, null, 2));
     try {
         const response = await fetch('/api/clientes', {
             method: 'POST',

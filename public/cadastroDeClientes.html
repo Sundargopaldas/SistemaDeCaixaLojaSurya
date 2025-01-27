@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="cadastroDeClientes.css">
 </head>
 <body>
-    <div class="nav-menu">
-        <a href="/caixa">Caixa</a>
-        <a href="/historico">Histórico</a>
-        <a href="/produtos">Produtos</a>
-        <a href="/listaDeClientes">Clientes</a>
-        <a href="/cadastroDeClientes" class="active">Novo Cliente</a>
-         <a href="/listaDeFornecedores">Fornecedores</a>
-        <a href="/cadastroDeFornecedores" class="active">Novo Fornecedor
-    </div>
+     <div class="nav-menu">
+    <a href="caixa.html">Caixa</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="historico.html">Histórico</a>
+    <a href="despesas.html">Despesas</a>
+    <a href="contasPagar.html">Contas a Pagar</a>
+    <a href="cadastroDeClientes.html">Novo Cliente</a>
+    <a href="listaDeClientes.html" class="active">Clientes</a>
+    <a href="cadastroDeFornecedores.html">Novo Fornecedor</a>
+    <a href="listaDeFornecedores.html">Fornecedores</a>
+    <a href="relatorios.html">Mais Vendidos</a>
+</div>
 
     <div class="container">
         <h1>Cadastro de Cliente</h1>
@@ -37,6 +40,12 @@
                     <input type="tel" id="telefone" name="telefone" required>
                 </div>
 
+                <div class="form-group">
+    <label for="dataNascimento">Data de Aniversário:</label>
+    <input type="date" id="dataNascimento" name="dataNascimento" required>
+    </div> 
+                
+                
                 <div class="form-actions">
                     <button type="submit" class="btn-salvar">Salvar</button>
                     <button type="button" class="btn-cancelar" onclick="window.location.href='/listaDeClientes'">Cancelar</button>
@@ -44,7 +53,7 @@
             </form>
         </div>
     </div>
-
+     <script src="js/aniversarios.js"></script>
     <script src="js/cadastroDeClientes.js"></script>
 </body>
 </html>

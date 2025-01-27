@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despesas - Loja Esotérica</title>
+    <link rel="stylesheet" href="despesas.css">
+</head>
+<body>
+     <div class="nav-menu">
+    <a href="caixa.html">Caixa</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="historico.html">Histórico</a>
+    <a href="despesas.html" class="active">Despesas</a>
+    <a href="contasPagar.html">Contas a Pagar</a>
+    <a href="cadastroDeClientes.html">Novo Cliente</a>
+    <a href="listaDeClientes.html">Clientes</a>
+    <a href="cadastroDeFornecedores.html">Novo Fornecedor</a>
+    <a href="listaDeFornecedores.html">Fornecedores</a>
+    <a href="relatorios.html">Mais Vendidos</a>
+</div>
+
+    <div class="container">
+        <h2>Gestão de Despesas</h2>
+
+        <div class="form-container">
+            <form id="despesa-form">
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" id="valor" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="data_vencimento">Data de Vencimento:</label>
+                    <input type="date" id="data_vencimento" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria">
+                        <option value="Aluguel">Aluguel</option>
+                        <option value="Água">Água</option>
+                        <option value="Luz">Luz</option>
+                        <option value="Internet">Internet</option>
+                        <option value="Funcionários">Funcionários</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Adicionar Despesa</button>
+            </form>
+        </div>
+
+        <div class="filtros">
+            <label>Filtrar por:</label>
+            <select id="filtro-status">
+                <option value="">Todos</option>
+                <option value="pendente">Pendente</option>
+                <option value="pago">Pago</option>
+                <option value="atrasado">Atrasado</option>
+            </select>
+            <input type="month" id="filtro-mes">
+        </div>
+
+        <div class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Vencimento</th>
+                        <th>Categoria</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="despesas-lista">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/despesas.js"></script>
+</body>
+</html>

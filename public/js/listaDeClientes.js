@@ -8,19 +8,21 @@ async function carregarClientes() {
         const tbody = document.getElementById('clientesTableBody');
         tbody.innerHTML = '';
 
-        clientes.forEach(cliente => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${cliente.nome}</td>
-                <td>${cliente.endereco}</td>
-                <td>${cliente.telefone}</td>
-                <td>
-                    <button class="btn-acao btn-editar" onclick="editarCliente(${cliente.id})">Editar</button>
-                    <button class="btn-acao btn-excluir" onclick="excluirCliente(${cliente.id})">Excluir</button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
+       clientes.forEach(cliente => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td>${cliente.nome}</td>
+        <td>${cliente.endereco}</td>
+        <td>${cliente.telefone}</td>
+        <td>${cliente.dataNascimento ? new Date(cliente.dataNascimento).toLocaleDateString('pt-BR') : ''}</td>
+        <td>
+            <button class="btn-acao btn-editar" onclick="editarCliente(${cliente.id})">Editar</button>
+            <button class="btn-acao btn-excluir" onclick="excluirCliente(${cliente.id})">Excluir</button>
+        </td>
+    `;
+    tbody.appendChild(tr);
+});
+
     } catch (error) {
         console.error('Erro ao carregar clientes:', error);
         alert('Erro ao carregar lista de clientes!');
@@ -30,20 +32,23 @@ async function carregarClientes() {
 // Busca de clientes
 document.getElementById('searchInput').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
-    const rows = document.getElementById('clientesTableBody').getElementsByTagName('tr');
+const rows = document.getElementById('clientesTableBody').getElementsByTagName('tr');
 
-    Array.from(rows).forEach(row => {
-        const nome = row.cells[0].textContent.toLowerCase();
-        const endereco = row.cells[1].textContent.toLowerCase();
-        const telefone = row.cells[2].textContent.toLowerCase();
-        
-        const matches = nome.includes(searchTerm) || 
-                       endereco.includes(searchTerm) || 
-                       telefone.includes(searchTerm);
-        
-        row.style.display = matches ? '' : 'none';
-    });
+Array.from(rows).forEach(row => {
+    const nome = row.cells[0].textContent.toLowerCase();
+    const endereco = row.cells[1].textContent.toLowerCase();
+    const telefone = row.cells[2].textContent.toLowerCase();
+    const dataNascimento = row.cells[3].textContent.toLowerCase();
+    
+    const matches = nome.includes(searchTerm) || 
+                   endereco.includes(searchTerm) || 
+                   telefone.includes(searchTerm) ||
+                   dataNascimento.includes(searchTerm);
+    
+    row.style.display = matches ? '' : 'none';
 });
+    });
+
 
 // Funções para o modal de edição
 function editarCliente(id) {
@@ -54,6 +59,7 @@ function editarCliente(id) {
             document.getElementById('editNome').value = cliente.nome;
             document.getElementById('editEndereco').value = cliente.endereco;
             document.getElementById('editTelefone').value = cliente.telefone;
+            document.getElementById('editDataNascimento').value = cliente.dataNascimento;
             document.getElementById('editModal').style.display = 'block';
         })
         .catch(error => {
@@ -65,6 +71,7 @@ function editarCliente(id) {
 function fecharModal() {
     document.getElementById('editModal').style.display = 'none';
 }
+document.querySelector('.close').addEventListener('click', fecharModal);
 
 // Atualizar cliente
 document.getElementById('editForm').addEventListener('submit', function(e) {
@@ -74,7 +81,8 @@ document.getElementById('editForm').addEventListener('submit', function(e) {
     const data = {
         nome: document.getElementById('editNome').value,
         endereco: document.getElementById('editEndereco').value,
-        telefone: document.getElementById('editTelefone').value
+        telefone: document.getElementById('editTelefone').value,
+        dataNascimento: document.getElementById('editDataNascimento').value 
     };
 
     fetch(`/api/clientes/${id}`, {
@@ -139,3 +147,5 @@ window.onclick = function(event) {
         fecharModal();
     }
 }
+// Função para verificar aniversariantes do dia
+// Função para verificar aniversariantes do dia

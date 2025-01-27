@@ -6,13 +6,29 @@ class Venda {
         this.valorPago = 0;
     }
 
-    adicionarItem(produto, quantidade) {
-        this.itens.push({
-            produto,
-            quantidade,
-            subtotal: produto.preco * quantidade
-        });
-        this.calcularTotal();
+    async adicionarItem(produto, quantidade) {
+        try {
+            const response = await fetch(`/api/produtos/${produto.id}/estoque`);
+            const estoque = await response.json();
+            
+            if (!response.ok) {
+                throw new Error('Erro ao verificar estoque');
+            }
+
+            if (estoque.quantidade < quantidade) {
+                throw new Error(`Estoque insuficiente. Disponível: ${estoque.quantidade}`);
+            }
+
+            this.itens.push({
+                produto,
+                quantidade,
+                subtotal: produto.preco * quantidade
+            });
+            this.calcularTotal();
+
+        } catch (error) {
+            throw error;
+        }
     }
 
     calcularTotal() {
@@ -32,31 +48,5 @@ class Venda {
     }
 }
 
-class Caixa {
-    constructor() {
-        this.vendas = [];
-        this.saldoInicial = 0;
-        this.saldoAtual = 0;
-    }
-
-    abrirCaixa(saldoInicial) {
-        this.saldoInicial = saldoInicial;
-        this.saldoAtual = saldoInicial;
-    }
-
-    registrarVenda(venda) {
-        this.vendas.push(venda);
-        this.saldoAtual += venda.total;
-    }
-
-    fecharCaixa() {
-        return {
-            totalVendas: this.vendas.length,
-            faturamento: this.vendas.reduce((sum, venda) => sum + venda.total, 0),
-            saldoInicial: this.saldoInicial,
-            saldoFinal: this.saldoAtual
-        };
-    }
-}
-
-module.exports = { Venda, Caixa };
+// Tornando a classe globalmente acessível
+window.Venda = Venda;

@@ -5,27 +5,31 @@ async function carregarFornecedores() {
     try {
         const response = await fetch('/api/fornecedores');
         const fornecedores = await response.json();
-        const tbody = document.getElementById('fornecedoresTableBody');
-        tbody.innerHTML = '';
+        
+        // Preenche o select do formulário
+        const selectFormulario = document.getElementById('fornecedor');
+        // Preenche o select do filtro
+        const selectFiltro = document.getElementById('filtro-fornecedor');
+        
+        if (selectFormulario) {
+            selectFormulario.innerHTML = '<option value="">Selecione um Fornecedor</option>';
+            fornecedores.forEach(fornecedor => {
+                selectFormulario.innerHTML += `
+                    <option value="${fornecedor.id}">${fornecedor.razao_social}</option>
+                `;
+            });
+        }
 
-        fornecedores.forEach(fornecedor => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${fornecedor.razao_social}</td>
-                <td>${fornecedor.nome_fantasia || '-'}</td>
-                <td>${fornecedor.cnpj}</td>
-                <td>${fornecedor.telefone}</td>
-                <td>${fornecedor.email || '-'}</td>
-                <td>
-                    <button class="btn-acao btn-editar" onclick="editarFornecedor(${fornecedor.id})">Editar</button>
-                    <button class="btn-acao btn-excluir" onclick="excluirFornecedor(${fornecedor.id})">Excluir</button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
+        if (selectFiltro) {
+            selectFiltro.innerHTML = '<option value="">Todos os Fornecedores</option>';
+            fornecedores.forEach(fornecedor => {
+                selectFiltro.innerHTML += `
+                    <option value="${fornecedor.id}">${fornecedor.razao_social}</option>
+                `;
+            });
+        }
     } catch (error) {
         console.error('Erro ao carregar fornecedores:', error);
-        alert('Erro ao carregar lista de fornecedores!');
     }
 }
 

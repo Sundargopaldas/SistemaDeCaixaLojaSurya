@@ -1,0 +1,102 @@
+body {
+   margin: 0;
+   background: linear-gradient(135deg, #2c3e50, #3498db);
+   font-family: 'Segoe UI', system-ui, sans-serif;
+}
+.nav-menu {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background: rgb(0, 0, 8);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    position: fixed; /* Fixa a navbar no topo */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #fefcfc;
+    padding: 0.5rem 1rem;
+}
+
+.nav-menu a.active {
+    
+    color: white;
+    border-radius: 4px;
+}
+
+
+.container {
+   max-width: 1200px;
+   margin: 30px;
+   padding: 2rem;
+}
+
+table {
+   width: 100%;
+   background: white;
+   border-radius: 12px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   margin-top: 2rem;
+}
+
+th, td {
+   padding: 1rem;
+   text-align: left;
+   border-bottom: 1px solid #ddd;
+   color: #333;
+}
+
+th {
+   background: rgba(44, 62, 80, 0.1);
+}
+
+.filters {
+   background: white;
+   padding: 1.5rem;
+   border-radius: 12px;
+   margin-bottom: 2rem;
+   display: flex;
+   gap: 1rem;
+   align-items: center;
+}
+
+select, button {
+   padding: 0.8rem;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   font-size: 1rem;
+}
+
+button {
+   background: #3498db;
+   color: white;
+   border: none;
+   cursor: pointer;
+   transition: background 0.3s;
+}
+
+button:hover {
+   background: #2980b9;
+}
+
+h1 {
+   color: white;
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.total {
+   background: white;
+   padding: 1rem;
+   border-radius: 8px;
+   margin-top: 1rem;
+   text-align: right;
+   color: #333;
+   font-weight: bold;
+}
