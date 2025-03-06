@@ -1,0 +1,77 @@
+/**
+ * Sobreposições de temas para garantir que todo o dashboard use corretamente as variáveis de tema
+ */
+
+/* Aplicar tema a elementos específicos do dashboard */
+.main-content {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar {
+    background-color: var(--background-alt);
+    border-right: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dashboard-card,
+.kpi-card,
+.chart-card,
+.table-card {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Elementos de texto */
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, select, textarea {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+/* Tabelas */
+table {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+th, td {
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--background-alt);
+}
+
+/* Botões e controles */
+button, 
+.btn, 
+input[type="button"], 
+input[type="submit"] {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Gráficos */
+canvas {
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar e navegação */
+.nav-menu {
+    background-color: var(--background-alt);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Dropdowns */
+.dropdown-content {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}

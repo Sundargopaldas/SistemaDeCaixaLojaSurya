@@ -1,0 +1,199 @@
+/**
+ * Estilos para os relatórios - PDV Surya
+ */
+
+/* Mensagens de status */
+.loading-message {
+    text-align: center;
+    padding: 20px;
+    color: #1e88e5;
+    font-style: italic;
+}
+
+.error-message {
+    text-align: center;
+    padding: 20px;
+    color: #e53935;
+    background-color: rgba(229, 57, 53, 0.1);
+    font-weight: bold;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: #757575;
+    font-style: italic;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #1e88e5;
+    margin-top: 0;
+    border-bottom: 2px solid #e6e9ed;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Nav Menu */
+.nav-menu {
+    background-color: #1e88e5;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-right: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Filtros */
+.filters {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f5f7fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filters select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #dce1e8;
+    background-color: white;
+    min-width: 120px;
+}
+
+.filters button {
+    padding: 8px 16px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filters button:hover {
+    background-color: #1976d2;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+table th {
+    background-color: #1e88e5;
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+}
+
+table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #dce1e8;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:nth-child(even) {
+    background-color: #f5f7fa;
+}
+
+table tr:hover {
+    background-color: rgba(30, 136, 229, 0.1);
+}
+
+/* Linha de total */
+table tr:last-child {
+    background-color: #f0f4f8;
+    font-weight: bold;
+}
+
+/* Gráficos */
+.chart-container {
+    margin-top: 30px;
+    height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+/* Seções */
+.relatorio-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.relatorio-section h2 {
+    margin-top: 0;
+    color: #1e88e5;
+    border-bottom: 2px solid #1e88e5;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+/* Impressão */
+@media print {
+    .filters,
+    .no-print {
+        display: none !important;
+    }
+    
+    .relatorio-section {
+        box-shadow: none;
+        margin-bottom: 15px;
+        break-inside: avoid;
+    }
+    
+    table {
+        box-shadow: none;
+        border: 1px solid #dce1e8;
+    }
+    
+    table th {
+        background-color: #f0f4f8 !important;
+        color: #333 !important;
+    }
+}

@@ -1,48 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="pt-BR"><head><link rel="stylesheet" href="css/navbar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contas a Pagar</title>
     <link rel="stylesheet" href="contasPagar.css">
+    <script src="/js/auth-utils.js"></script><script src="js/auth.js"></script>
+    <script src="js/auth-fix.js"></script>
+    
+
+    <style>
+        
+        .user-menu .user-icon {
+            background-color: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .user-menu:hover 
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            border-radius: 4px;
+        }
+    </style>
+
+
+<script src="js/logout-final.js"></script>
 </head>
 <body>
- <div class="nav-menu">
+ 
+
+<div class="nav-menu">
     <a href="caixa.html">Caixa</a>
     <a href="produtos.html">Produtos</a>
+    <a href="produtoLista.html">Lista de Produtos</a>
     <a href="historico.html">Histórico</a>
     <a href="despesas.html">Despesas</a>
-    <a href="contasPagar.html" class="active">Contas a Pagar</a>
-    <a href="cadastroDeClientes.html">Novo Cliente</a>
+    <a href="contasPagar.html">Contas a Pagar</a>
     <a href="listaDeClientes.html">Clientes</a>
-    <a href="cadastroDeFornecedores.html">Novo Fornecedor</a>
     <a href="listaDeFornecedores.html">Fornecedores</a>
-    <a href="relatorios.html">Mais Vendidos</a>
+    <a href="orcamentos.html">Orçamentos</a>
+    
+    <a href="relatorios.html">Relatórios</a>
+    <div class="user-menu">
+        <div class="user-icon">U</div>
+        <div class="dropdown-content">
+            <a href="#" id="botao-sair">Sair</a>
+        </div>
+    </div>
 </div>
 
-    <div class="container">
+
+
+    <div class="container" style="; margin-top: 55px !important;">
         <h2>Gestão de Contas a Pagar</h2>
 
         <div class="form-container">
             <form id="conta-form">
                 <div class="form-group">
                     <label for="fornecedor">Fornecedor:</label>
-                    <select id="fornecedor" required></select>
+                    <select id="fornecedor" required=""></select>
                 </div>
 
                 <div class="form-group">
                     <label for="descricao">Descrição:</label>
-                    <input type="text" id="descricao" required>
+                    <input type="text" id="descricao" required="">
                 </div>
 
                 <div class="form-group">
                     <label for="valor">Valor:</label>
-                    <input type="number" id="valor" step="0.01" required>
+                    <input type="number" id="valor" step="0.01" required="">
                 </div>
 
                 <div class="form-group">
                     <label for="data_vencimento">Data de Vencimento:</label>
-                    <input type="date" id="data_vencimento" required>
+                    <input type="date" id="data_vencimento" required="">
                 </div>
 
                 <div class="form-group">
@@ -86,7 +129,7 @@
         </div>
     </div>
 
-    <script src="js/contasPagar.js"></script>
+    <script src="js/contasPagar.js" defer=""></script>
 
 
 
@@ -104,5 +147,10 @@
 
 
 
-</body>
-</html>
+
+
+            
+
+
+
+<script src="js/navbar.js"></script></body></html>

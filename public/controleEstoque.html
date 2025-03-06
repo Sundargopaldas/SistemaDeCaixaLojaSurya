@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="css/navbar.css">
+    <title>Controle de Estoque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/controleEstoque.css">
+    <script src="js/auth-utils.js"></script>
+    <script src="js/auth-fix.js"></script>
+    <script src="js/logout-final.js"></script>
+</head>
+<body>
+    <div class="estoque-container" style="margin-top: 55px !important;">
+        <div class="nav-menu">
+            <a href="caixa.html">Caixa</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="produtoLista.html">Lista de Produtos</a>
+            <a href="historico.html">Histórico</a>
+            <a href="despesas.html">Despesas</a>
+            <a href="contasPagar.html">Contas a Pagar</a>
+            <a href="listaDeClientes.html">Clientes</a>
+            <a href="listaDeFornecedores.html">Fornecedores</a>
+            <a href="orcamentos.html">Orçamentos</a>
+            
+            <a href="relatorios.html">Relatórios</a>
+            <div class="user-menu">
+                <div class="user-icon">U</div>
+                <div class="dropdown-content">
+                    <a href="#" id="botao-sair">Sair</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="controles">
+            <div class="filtros">
+                <h3>Filtrar Produtos</h3>
+                <div class="filtro-grupo">
+                    <select id="filtroCategoria">
+                        <option value="">Todas as categorias</option>
+                    </select>
+                    <select id="filtroEstoque">
+                        <option value="todos">Todos os produtos</option>
+                        <option value="baixo">Estoque baixo</option>
+                        <option value="critico">Estoque crítico</option>
+                        <option value="zerado">Sem estoque</option>
+                    </select>
+                    <button id="btnImprimir" class="btn-imprimir">Imprimir Relatório</button>
+                </div>
+            </div>
+            <div class="configuracoes">
+                <h3>Configurações de Alerta</h3>
+                <div class="config-grupo">
+                    <label for="nivelBaixo">Nível de Estoque Baixo:</label>
+                    <input type="number" id="nivelBaixo" min="1" value="10">
+                    
+                    <label for="nivelCritico">Nível de Estoque Crítico:</label>
+                    <input type="number" id="nivelCritico" min="1" value="5">
+                    
+                    <button id="btnSalvarConfig" class="btn-salvar">Salvar Configurações</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="resumo">
+            <div class="card total">
+                <h3>Total de Produtos</h3>
+                <p id="totalProdutos">0</p>
+            </div>
+            <div class="card baixo">
+                <h3>Estoque Baixo</h3>
+                <p id="estoqueBaixo">0</p>
+            </div>
+            <div class="card critico">
+                <h3>Estoque Crítico</h3>
+                <p id="estoqueCritico">0</p>
+            </div>
+            <div class="card zerado">
+                <h3>Sem Estoque</h3>
+                <p id="estoqueZerado">0</p>
+            </div>
+        </div>
+
+        <div id="listaEstoque" class="estoque-lista">
+            <!-- Os produtos serão carregados aqui pelo JavaScript -->
+        </div>
+
+        <!-- Modal Reposição de Estoque -->
+        <div id="reposicaoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModalReposicao()">×</span>
+                <h2>Repor Estoque</h2>
+                <form id="reposicaoForm">
+                    <div class="produto-info">
+                        <p><strong>Produto:</strong> <span id="nomeProduto"></span></p>
+                        <p><strong>Categoria:</strong> <span id="categoriaProduto"></span></p>
+                        <p><strong>Estoque Atual:</strong> <span id="estoqueAtual"></span></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidadeRepor">Quantidade a Repor:</label>
+                        <input type="number" id="quantidadeRepor" name="quantidade" min="1" required>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="submit">Confirmar</button>
+                        <button type="button" onclick="fecharModalReposicao()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/controleEstoque.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+</html>

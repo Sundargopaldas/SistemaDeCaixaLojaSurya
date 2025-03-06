@@ -42,9 +42,10 @@ body {
             cursor: pointer;
             font-size: 16px;
             position: absolute;
-            top: 20px;
+            top: 90px; /* Ajustado para ficar abaixo do menu de navegação */
             right: 20px;
             transition: background-color 0.3s;
+            z-index: 100; /* Garantir que fique acima de outros elementos */
         }
 
         .btn-login:hover {

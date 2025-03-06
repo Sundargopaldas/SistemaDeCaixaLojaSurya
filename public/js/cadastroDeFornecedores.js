@@ -1,3 +1,13 @@
+
+// Função para obter os headers de autenticação
+function getAuthHeaders() {
+    const token = localStorage.getItem('authToken');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : ''
+    };
+}
+// No cadastroDeFornecedores.js
 document.getElementById('fornecedorForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -11,19 +21,20 @@ document.getElementById('fornecedorForm').addEventListener('submit', async (e) =
     };
 
     try {
-        const response = await fetch('/api/fornecedores', {
+        const response = await fetch('http://localhost:3001/api/fornecedores', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData, { headers: getAuthHeaders() })
         });
 
         const data = await response.json();
 
         if (data.success) {
             alert('Fornecedor cadastrado com sucesso!');
-            window.location.href = '/listaDeFornecedores';
+            // Usar o caminho correto para redirecionamento
+            window.location.href = 'listaDeFornecedores.html';
         } else {
             alert('Erro ao cadastrar fornecedor: ' + data.message);
         }

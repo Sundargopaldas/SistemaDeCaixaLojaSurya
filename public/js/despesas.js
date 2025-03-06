@@ -1,10 +1,19 @@
+
+// Função para obter os headers de autenticação
+function getAuthHeaders() {
+    const token = localStorage.getItem('authToken');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : ''
+    };
+}
 // 1. Variáveis globais
 let todosDespesas = [];
 
 // 2. Funções
 async function carregarDespesas() {
     try {
-        const response = await fetch('/api/despesas');
+        const response = await fetch('/api/despesas', { headers: getAuthHeaders() });
         todosDespesas = await response.json();
         
         const tbody = document.getElementById('despesas-lista');
@@ -64,7 +73,7 @@ async function marcarComoPago(id) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 status: 'pago',
-                data_pagamento: new Date().toISOString().split('T')[0]
+                data_pagamento: new Date(, { headers: getAuthHeaders() }).toISOString().split('T')[0]
             })
         });
 
@@ -84,7 +93,7 @@ async function deletarDespesa(id) {
     if (!confirm('Tem certeza que deseja excluir esta despesa?')) return;
 
     try {
-        const response = await fetch(`/api/despesas/${id}`, {
+        const response = await fetch(`/api/despesas/${id, headers: getAuthHeaders() }`, {
             method: 'DELETE'
         });
 
@@ -176,7 +185,7 @@ document.getElementById('despesa-form').addEventListener('submit', async (e) => 
         const response = await fetch(url, {
             method: method,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(despesa)
+            body: JSON.stringify(despesa, { headers: getAuthHeaders() })
         });
 
         if (response.ok) {

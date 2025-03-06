@@ -11,21 +11,21 @@ const ProdutoController = {
         );
     },
 
-  criar(req, res) {
-    const { nome, preco, quantidade = 0, categoria_id } = req.body;
-    const quantidadeInicial = parseInt(quantidade) || 0;
-    
-    connection.query(
-        'INSERT INTO produtos (nome, preco, quantidade, categoria_id) VALUES (?, ?, ?, ?)',
-        [nome, preco, quantidadeInicial, categoria_id],
-        (err, result) => {
-            if (err) return res.status(500).json(err);
-            res.status(201).json({
-                id: result.insertId,
-                nome,
-                preco,
-                quantidade: quantidadeInicial,
-                categoria_id
+    criar(req, res) {
+        const { nome, preco, quantidade = 0, categoria_id } = req.body;
+        const quantidadeInicial = parseInt(quantidade) || 0;
+        
+        connection.query(
+            'INSERT INTO produtos (nome, preco, quantidade, categoria_id) VALUES (?, ?, ?, ?)',
+            [nome, preco, quantidadeInicial, categoria_id],
+            (err, result) => {
+                if (err) return res.status(500).json(err);
+                res.status(201).json({
+                    id: result.insertId,
+                    nome,
+                    preco,
+                    quantidade: quantidadeInicial,
+                    categoria_id
                 });
             }
         );
@@ -57,15 +57,15 @@ const ProdutoController = {
     },
 
     buscarProduto(req, res) {
-    const { termo } = req.query;
-    connection.query(
-        'SELECT p.*, c.nome as categoria FROM produtos p JOIN categorias c ON p.categoria_id = c.id WHERE p.nome LIKE ?',
-        [`%${termo}%`],
-        (err, results) => {
-            if (err) return res.status(500).json(err);
-            res.json(results);
-        }
-    )
+        const { termo } = req.query;
+        connection.query(
+            'SELECT p.*, c.nome as categoria FROM produtos p JOIN categorias c ON p.categoria_id = c.id WHERE p.nome LIKE ?',
+            [`%${termo}%`],
+            (err, results) => {
+                if (err) return res.status(500).json(err);
+                res.json(results);
+            }
+        )
     },
 
 
@@ -160,6 +160,46 @@ const ProdutoController = {
                 });
             }
         );
+    },
+
+    /**
+     * Buscar todos os produtos
+     * @param {Object} req - Requisição
+     * @param {Object} res - Resposta
+     * @returns {Object} - Lista de produtos
+     */
+    getAll(req, res) {
+        console.log('Buscando produtos...');
+        
+        // Consulta para buscar todos os produtos
+        const sql = `
+            SELECT 
+                p.*,
+                c.nome as categoria_nome
+            FROM produtos p
+            LEFT JOIN categorias c ON p.categoria_id = c.id
+            WHERE p.ativo = 1
+            ORDER BY p.nome
+        `;
+        
+        connection.query(sql, (err, results) => {
+            if (err) {
+                console.error('Erro ao buscar produtos:', err);
+                return res.status(500).json({ 
+                    success: false,
+                    message: 'Erro ao buscar produtos',
+                    error: err.message
+                });
+            }
+            
+            console.log(`Encontrados ${results.length} produtos`);
+            
+            res.json({
+                success: true,
+                total: results.length,
+                data: results
+            });
+        });
     }
 };
 

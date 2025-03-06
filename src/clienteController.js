@@ -17,11 +17,15 @@ const ClienteController = {
 
     // Criar novo cliente
     criar(req, res) {
-        const { nome, endereco, telefone, dataNascimento } = req.body;
-        console.log('Dados recebidos:', req.body); // Debug
+        const { nome, endereco, telefone } = req.body;
+        
+        // Registro para debug
+        console.log('Requisição de cadastro de cliente recebida:');
+        console.log('Dados originais:', req.body);
+        
         connection.query(
-    'INSERT INTO clientes (nome, endereco, telefone, dataNascimento) VALUES (?, ?, ?, ?)',
-    [nome, endereco, telefone, dataNascimento],
+            'INSERT INTO clientes (nome, endereco, telefone) VALUES (?, ?, ?)',
+            [nome, endereco, telefone],
             (err, result) => {
                 if (err) {
                     console.error('Erro ao cadastrar cliente:', err);
@@ -77,11 +81,11 @@ const ClienteController = {
     // Atualizar cliente
     atualizar(req, res) {
         const { id } = req.params;
-        const { nome, endereco, telefone, dataNascimento } = req.body;
+        const { nome, endereco, telefone } = req.body;
         
         connection.query(
-    'UPDATE clientes SET nome = ?, endereco = ?, telefone = ?, dataNascimento = ? WHERE id = ?',
-    [nome, endereco, telefone, dataNascimento, id],
+            'UPDATE clientes SET nome = ?, endereco = ?, telefone = ? WHERE id = ?',
+            [nome, endereco, telefone, id],
             (err, result) => {
                 if (err) {
                     console.error('Erro ao atualizar cliente:', err);

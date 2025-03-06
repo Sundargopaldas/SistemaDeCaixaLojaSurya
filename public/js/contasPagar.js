@@ -1,3 +1,12 @@
+
+// Função para obter os headers de autenticação
+function getAuthHeaders() {
+    const token = localStorage.getItem('authToken');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : ''
+    };
+}
 // Variáveis globais
 let todasContas = [];
 
@@ -70,7 +79,7 @@ function cancelarEdicao() {
 
 async function carregarFornecedores() {
     try {
-        const response = await fetch('/api/fornecedores');
+        const response = await fetch('/api/fornecedores', { headers: getAuthHeaders() });
         const fornecedores = await response.json();
         
         const selectFormulario = document.getElementById('fornecedor');
@@ -100,7 +109,7 @@ async function carregarFornecedores() {
 
 async function carregarContas() {
     try {
-        const response = await fetch('/api/contas-pagar');
+        const response = await fetch('/api/contas-pagar', { headers: getAuthHeaders() });
         todasContas = await response.json();
         
         const tbody = document.getElementById('contas-lista');
@@ -162,7 +171,7 @@ async function marcarComoPago(id) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 status: 'pago',
-                data_pagamento: new Date().toISOString().split('T')[0]
+                data_pagamento: new Date(, { headers: getAuthHeaders() }).toISOString().split('T')[0]
             })
         });
 
@@ -182,7 +191,7 @@ async function deletarConta(id) {
     if (!confirm('Tem certeza que deseja excluir esta conta?')) return;
 
     try {
-        const response = await fetch(`/api/contas-pagar/${id}`, {
+        const response = await fetch(`/api/contas-pagar/${id, headers: getAuthHeaders() }`, {
             method: 'DELETE'
         });
 
@@ -230,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(url, {
                 method: method,
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(conta)
+                body: JSON.stringify(conta, { headers: getAuthHeaders() })
             });
 
             if (response.ok) {

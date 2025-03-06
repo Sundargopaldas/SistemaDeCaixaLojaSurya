@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Completo - PDV Surya</title>
+    
+    <!-- IMPORTANTE: CSS da navbar deve vir PRIMEIRO para ter prioridade -->
+    <link rel="stylesheet" href="css/navbar.css">
+    
+    <!-- Depois, seus outros CSS específicos da página -->
+    <link rel="stylesheet" href="NOME-DO-SEU-CSS.css">
+    
+    <!-- Scripts de autenticação -->
+    <script src="js/auth-utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/auth-fix.js"></script>
+    <script src="js/logout-final.js"></script>
+</head>
+<body>
+    <!-- Navbar Padronizada - COPIE ESTE BLOCO INTEIRO -->
+    <div class="nav-menu">
+        <a href="index.html">Início</a>
+        <a href="caixa.html">Caixa</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="produtoLista.html">Lista de Produtos</a>
+        <a href="historico.html">Histórico</a>
+        <a href="despesas.html">Despesas</a>
+        <a href="contasPagar.html">Contas a Pagar</a>
+        <a href="listaDeClientes.html">Clientes</a>
+        <a href="listaDeFornecedores.html">Fornecedores</a>
+        <a href="orcamentos.html">Orçamentos</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="relatorios.html">Relatórios</a>
+        <div class="user-menu">
+            <div class="user-icon">U</div>
+            <div class="dropdown-content">
+                <a href="#" id="botao-sair">Sair</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEU CONTEÚDO AQUI -->
+    <div class="seu-container-principal" style="margin-top: 70px;">
+        <!-- Todo o conteúdo da sua página vai aqui -->
+        <h1>Seu Conteúdo</h1>
+    </div>
+    
+    <!-- IMPORTANTE: Seus scripts normais -->
+    <script src="seus-scripts.js"></script>
+    
+    <!-- IMPORTANTE: Script da navbar deve vir POR ÚLTIMO -->
+    <script src="js/navbar.js"></script>
+</body>
+</html>

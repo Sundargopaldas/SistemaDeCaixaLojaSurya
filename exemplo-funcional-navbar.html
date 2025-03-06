@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Funcional - Navbar PDV Surya</title>
+    
+    <!-- IMPORTANTE: CSS da navbar deve vir primeiro -->
+    <link rel="stylesheet" href="public/css/navbar.css">
+    
+    <!-- Estilos adicionais apenas para este exemplo -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .conteudo-exemplo {
+            margin-top: 70px; /* Importante: espaço para a navbar fixa */
+            padding: 20px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        .instrucoes {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+        
+        .aviso {
+            background-color: #fff9e6;
+            border-left: 4px solid #faad14;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+        
+        .dica {
+            background-color: #f6ffed;
+            border-left: 4px solid #52c41a;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .codigo-exemplo {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Padronizada -->
+    <div class="nav-menu">
+        <a href="index.html">Início</a>
+        <a href="caixa.html">Caixa</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="produtoLista.html">Lista de Produtos</a>
+        <a href="historico.html">Histórico</a>
+        <a href="despesas.html">Despesas</a>
+        <a href="contasPagar.html">Contas a Pagar</a>
+        <a href="listaDeClientes.html">Clientes</a>
+        <a href="listaDeFornecedores.html">Fornecedores</a>
+        <a href="orcamentos.html">Orçamentos</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="relatorios.html">Relatórios</a>
+        <div class="user-menu">
+            <div class="user-icon">U</div>
+            <div class="dropdown-content">
+                <a href="#" id="botao-sair">Sair</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="conteudo-exemplo">
+        <div class="card">
+            <h1>Exemplo Funcional: Navbar Padronizada</h1>
+            <p>Esta página demonstra a implementação correta da navbar padronizada para o sistema PDV-Surya.</p>
+            
+            <div class="instrucoes">
+                <h3>Como Funciona</h3>
+                <p>Esta navbar utiliza:</p>
+                <ul>
+                    <li>Posicionamento fixo no topo da página</li>
+                    <li>Estilo visual consistente com o dashboard</li>
+                    <li>Destacamento automático da página atual</li>
+                    <li>Menu dropdown para o usuário</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Implementação em 4 Etapas</h2>
+            
+            <div class="aviso">
+                <strong>IMPORTANTE:</strong> Siga esta ordem exata para que a navbar funcione corretamente!
+            </div>
+            
+            <h3>1. Adicionar CSS da Navbar</h3>
+            <p>Adicione o seguinte link no <code>&lt;head&gt;</code> da sua página, antes de qualquer outro CSS:</p>
+            <div class="codigo-exemplo">
+                &lt;link rel="stylesheet" href="css/navbar.css"&gt;
+            </div>
+            
+            <h3>2. Estrutura HTML da Navbar</h3>
+            <p>Adicione esta estrutura no início do <code>&lt;body&gt;</code>:</p>
+            <div class="codigo-exemplo">
+                &lt;div class="nav-menu"&gt;
+                    &lt;a href="index.html"&gt;Início&lt;/a&gt;
+                    &lt;a href="caixa.html"&gt;Caixa&lt;/a&gt;
+                    &lt;a href="produtos.html"&gt;Produtos&lt;/a&gt;
+                    &lt;a href="produtoLista.html"&gt;Lista de Produtos&lt;/a&gt;
+                    &lt;a href="historico.html"&gt;Histórico&lt;/a&gt;
+                    &lt;a href="despesas.html"&gt;Despesas&lt;/a&gt;
+                    &lt;a href="contasPagar.html"&gt;Contas a Pagar&lt;/a&gt;
+                    &lt;a href="listaDeClientes.html"&gt;Clientes&lt;/a&gt;
+                    &lt;a href="listaDeFornecedores.html"&gt;Fornecedores&lt;/a&gt;
+                    &lt;a href="orcamentos.html"&gt;Orçamentos&lt;/a&gt;
+                    &lt;a href="dashboard.html"&gt;Dashboard&lt;/a&gt;
+                    &lt;a href="relatorios.html"&gt;Relatórios&lt;/a&gt;
+                    &lt;div class="user-menu"&gt;
+                        &lt;div class="user-icon"&gt;U&lt;/div&gt;
+                        &lt;div class="dropdown-content"&gt;
+                            &lt;a href="#" id="botao-sair"&gt;Sair&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+            
+            <h3>3. Adicionar Margem ao Conteúdo Principal</h3>
+            <p>Para evitar que o conteúdo fique escondido sob a navbar, adicione uma margem superior:</p>
+            <div class="codigo-exemplo">
+                &lt;div class="seu-container-principal" style="margin-top: 70px;"&gt;
+                    <!-- Seu conteúdo aqui -->
+                &lt;/div&gt;
+            </div>
+            
+            <h3>4. Adicionar JavaScript da Navbar</h3>
+            <p>No final do <code>&lt;body&gt;</code>, adicione:</p>
+            <div class="codigo-exemplo">
+                &lt;script src="js/navbar.js"&gt;&lt;/script&gt;
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Verificação da Implementação</h2>
+            
+            <div class="dica">
+                <strong>Dica:</strong> Use o script de diagnóstico para verificar a implementação em todas as páginas:
+                <br>
+                <code>node scripts/diagnostico-navbar.js</code>
+            </div>
+            
+            <h3>Checklist Manual</h3>
+            <ul>
+                <li>A navbar está fixa no topo da página?</li>
+                <li>A página atual está destacada na navbar?</li>
+                <li>Ao passar o mouse sobre os links, eles mudam de cor?</li>
+                <li>O menu dropdown do usuário abre ao clicar no ícone?</li>
+                <li>A navbar se adapta corretamente em telas menores?</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Script da navbar (deve ser o último) -->
+    <script src="public/js/navbar.js"></script>
+</body>
+</html>

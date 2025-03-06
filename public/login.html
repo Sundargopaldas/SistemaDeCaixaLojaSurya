@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-BR"><head><link rel="stylesheet" href="css/navbar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Loja Surya</title>
@@ -9,23 +7,45 @@
         
 </head>
 <body>
+
+<div class="nav-menu">
+    <a href="caixa.html">Caixa</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="produtoLista.html">Lista de Produtos</a>
+    <a href="historico.html">Histórico</a>
+    <a href="despesas.html">Despesas</a>
+    <a href="contasPagar.html">Contas a Pagar</a>
+    <a href="listaDeClientes.html">Clientes</a>
+    <a href="listaDeFornecedores.html">Fornecedores</a>
+    <a href="orcamentos.html">Orçamentos</a>
+    
+    <a href="relatorios.html">Relatórios</a>
+    <div class="user-menu">
+        <div class="user-icon">U</div>
+        <div class="dropdown-content">
+            <a href="#" id="botao-sair">Sair</a>
+        </div>
+    </div>
+</div>
+
+
     
     
-    <div class="login-container">
+    <div class="login-container" style="margin-top: 55px !important;">
         <form class="login-form">
             <div class="form-group">
                 <label for="usuario">Usuário:</label>
-                <input type="text" id="usuario" name="usuario" required>
+                <input type="text" id="usuario" name="usuario" required="">
             </div>
 
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required="">
             </div>
             
             <div class="form-group">
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
+                <input type="password" id="senha" name="senha" required="">
             </div>
             
             <button type="submit" class="btn-enter">ENTRAR</button>
@@ -35,7 +55,6 @@
             </p>
         </form>
     </div>
-    <script src="js/aniversarios.js"></script>
     <script src="js/login.js"></script>
-</body>
-</html>
+
+<script src="js/navbar.js"></script></body></html>

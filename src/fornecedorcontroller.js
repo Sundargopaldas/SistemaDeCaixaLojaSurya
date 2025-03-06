@@ -116,29 +116,55 @@ const FornecedorController = {
     deletar(req, res) {
         const { id } = req.params;
         
+        // Primeiro verificar se existem contas a pagar vinculadas a este fornecedor
         connection.query(
-            'DELETE FROM fornecedores WHERE id = ?',
+            'SELECT COUNT(*) as count FROM contas_pagar WHERE fornecedor_id = ?',
             [id],
-            (err, result) => {
+            (err, results) => {
                 if (err) {
-                    console.error('Erro ao excluir fornecedor:', err);
+                    console.error('Erro ao verificar contas a pagar:', err);
                     return res.status(500).json({
                         success: false,
-                        message: 'Erro ao excluir fornecedor'
+                        message: 'Erro ao verificar dependências do fornecedor'
                     });
                 }
                 
-                if (result.affectedRows === 0) {
-                    return res.status(404).json({
+                const contasCount = results[0].count;
+                
+                if (contasCount > 0) {
+                    // Existem contas a pagar vinculadas, não pode excluir
+                    return res.status(400).json({
                         success: false,
-                        message: 'Fornecedor não encontrado'
+                        message: 'Não é possível excluir este fornecedor pois existem contas a pagar vinculadas a ele. Exclua as contas primeiro ou mude-as para outro fornecedor.'
                     });
                 }
                 
-                res.json({
-                    success: true,
-                    message: 'Fornecedor excluído com sucesso'
-                });
+                // Se não existirem contas vinculadas, prosseguir com a exclusão
+                connection.query(
+                    'DELETE FROM fornecedores WHERE id = ?',
+                    [id],
+                    (err, result) => {
+                        if (err) {
+                            console.error('Erro ao excluir fornecedor:', err);
+                            return res.status(500).json({
+                                success: false,
+                                message: 'Erro ao excluir fornecedor'
+                            });
+                        }
+                        
+                        if (result.affectedRows === 0) {
+                            return res.status(404).json({
+                                success: false,
+                                message: 'Fornecedor não encontrado'
+                            });
+                        }
+                        
+                        res.json({
+                            success: true,
+                            message: 'Fornecedor excluído com sucesso'
+                        });
+                    }
+                );
             }
         );
     }

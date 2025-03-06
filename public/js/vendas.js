@@ -1,3 +1,5 @@
+import { getAuthHeaders } from './auth-utils.js';
+
 class Venda {
     constructor() {
         this.itens = [];
@@ -8,7 +10,16 @@ class Venda {
 
     async adicionarItem(produto, quantidade) {
         try {
-            const response = await fetch(`/api/produtos/${produto.id}/estoque`);
+            // Usa a função global de auth-utils se estiver disponível, caso contrário usa o método tradicional
+            const headers = window.getAuthHeadersGlobal ? 
+                window.getAuthHeadersGlobal() : 
+                { 
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('authToken') ? 
+                        `Bearer ${localStorage.getItem('authToken')}` : ''
+                };
+                
+            const response = await fetch(`/api/produtos/${produto.id}/estoque`, { headers });
             const estoque = await response.json();
             
             if (!response.ok) {

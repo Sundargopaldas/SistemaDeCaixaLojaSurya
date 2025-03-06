@@ -1,24 +1,99 @@
-<!DOCTYPE html>
-<html>
-<head>
-   <title>Relatório de Vendas</title>
+<!DOCTYPE html><html lang="pt-BR"><head><link rel="stylesheet" href="css/navbar.css">
+   <title>Relatório de Vendas - PDV Surya</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="relatorios.css">
+   <script src="js/auth.js"></script>
+
+   <style>
+       /* Estilo da navbar compatível com as outras páginas */
+       
+
+       
+
+       
+
+       
+       
+       /* Ajustes para o logo e menu de usuário */
+       .logo-container {
+           margin-right: 20px;
+       }
+       
+       .logo {
+           height: 30px;
+       }
+       
+       
+       
+       .user-icon {
+           background-color: #3498db;
+           color: white;
+           width: 30px;
+           height: 30px;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-weight: bold;
+       }
+       
+       
+       
+       .user-menu:hover 
+       
+       .dropdown-content a {
+           color: black;
+           padding: 12px 16px;
+           text-decoration: none;
+           display: block;
+           text-align: left;
+       }
+       
+       .dropdown-content a:hover {
+           background-color: #f1f1f1;
+           border-radius: 4px;
+       }
+       
+       /* Ajustes para acomodar a navbar fixa */
+       body {
+           padding-top: 60px; /* Adicionar espaço para a navbar fixa */
+       }
+       
+       .container {
+           padding-top: 20px;
+       }
+   </style>
+
+<script src="js/logout-final.js"></script>
 </head>
 <body>
-   <div class="nav-menu">
-       <a href="caixa.html">Caixa</a>
-       <a href="produtos.html">Produtos</a>
-       <a href="historico.html">Histórico</a>
-       <a href="despesas.html">Despesas</a>
-       <a href="contasPagar.html">Contas a Pagar</a>
-       <a href="cadastroDeClientes.html">Novo Cliente</a>
-       <a href="listaDeClientes.html">Clientes</a>
-       <a href="cadastroDeFornecedores.html">Novo Fornecedor</a>
-       <a href="listaDeFornecedores.html">Fornecedores</a>
-       <a href="relatorios.html">Mais Vendidos</a>
-   </div>
 
-   <div class="container">
+   
+
+<div class="nav-menu">
+    <a href="caixa.html">Caixa</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="produtoLista.html">Lista de Produtos</a>
+    <a href="historico.html">Histórico</a>
+    <a href="despesas.html">Despesas</a>
+    <a href="contasPagar.html">Contas a Pagar</a>
+    <a href="listaDeClientes.html">Clientes</a>
+    <a href="listaDeFornecedores.html">Fornecedores</a>
+    <a href="orcamentos.html">Orçamentos</a>
+    
+    <a href="relatorios.html">Relatórios</a>
+    <div class="user-menu">
+        <div class="user-icon">U</div>
+        <div class="dropdown-content">
+            <a href="#" id="botao-sair">Sair</a>
+        </div>
+    </div>
+</div>
+
+
+
+   <div class="container" style="; margin-top: 55px !important;">
        <h1>Produtos Mais Vendidos</h1>
        
        <div class="filters">
@@ -44,7 +119,7 @@
    <option value="2023">2023</option>
 </select>
 
-           <button onclick="filtrarVendas()">Filtrar</button>
+           <button onclick="filtrarVendas()" type="button">Filtrar</button>
        </div>
 
        <table>
@@ -59,6 +134,7 @@
        </table>
    </div>
 
-   <script src="js/relatorios.js"></script>
-</body>
-</html>
+   <script src="js/auth-utils.js"></script>
+    <script src="js/relatorios.js" defer=""></script>
+
+<script src="js/navbar.js"></script></body></html>

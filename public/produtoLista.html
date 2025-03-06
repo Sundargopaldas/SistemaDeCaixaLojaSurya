@@ -1,82 +1,157 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html><html lang="pt-BR"><head><link rel="stylesheet" href="css/navbar.css">
    <title>Listagem de Produtos</title>
    <link rel="stylesheet" href="produtolista.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/auth-utils.js"></script><script src="js/auth.js"></script>
+    <script src="js/auth-fix.js"></script>
+    
+    <style>
+        
+        .user-menu .user-icon {
+            background-color: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .user-menu:hover 
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            border-radius: 4px;
+        }
+    </style>
+
+<script src="js/logout-final.js"></script>
 </head>
 <body>
-   <div class="produtos-container">
+
+<div class="nav-menu">
+    <a href="caixa.html">Caixa</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="produtoLista.html">Lista de Produtos</a>
+    <a href="historico.html">Histórico</a>
+    <a href="despesas.html">Despesas</a>
+    <a href="contasPagar.html">Contas a Pagar</a>
+    <a href="listaDeClientes.html">Clientes</a>
+    <a href="listaDeFornecedores.html">Fornecedores</a>
+    <a href="orcamentos.html">Orçamentos</a>
+    
+    <a href="relatorios.html">Relatórios</a>
+    <div class="user-menu">
+        <div class="user-icon">U</div>
+        <div class="dropdown-content">
+            <a href="#" id="botao-sair">Sair</a>
+        </div>
+    </div>
+</div>
+
+
+   <div class="produtos-container" style="; margin-top: 55px !important;">
        <nav class="menu">
+           <h2 style="color: white; margin: 0;">Lista de Produtos</h2>
            <a href="/produtos.html" class="btn-lista">Cadastrar Novo Produto</a>
-       </nav>
+           <a href="controleEstoque.html" class="btn-lista">Controle de Estoque</a>
+           <!-- Removido o menu de usuário duplicado -->
+       
+            <div class="nav-item ml-auto">
+                
+            </div>
+            </nav>
        <div class="filtros">
-           <h2>Lista de Produtos</h2>
-           <select id="filtroCategoria">
-               <option value="">Todas as categorias</option>
-               <option value="Incensos">Incensos</option>
-               <option value="Pedras">Pedras</option>
-               <option value="Pingentes">Pingentes</option>
-               <option value="Anéis">Anéis</option>
-               <option value="Pulseiras">Pulseiras</option>
-               <option value="Imagens">Imagens</option>
-               <option value="Óleos">Óleos</option>
-               <option value="Essências">Essências</option>
-               <option value="Incensários">Incensários</option>
-               <option value="Sinos de Vento">Sinos de Vento</option>
-               <option value="Colchas">Colchas</option>
-               <option value="Panos">Panos</option>
-               <option value="Duendes">Duendes</option>
-               <option value="Bruxas">Bruxas</option>
-               <option value="Fadas">Fadas</option>
-               <option value="Livros">Livros</option>
-               <option value="Oráculos">Oráculos</option>
-               <option value="Mandalas">Mandalas</option>
-               <option value="Prismas">Prismas</option>
-               <option value="Roupas Indianas">Roupas Indianas</option>
-               <option value="Fontes">Fontes</option>
-           </select>
+           <h3>Filtrar Produtos</h3>
+           <div class="filtro-grupo">
+               <select id="filtroCategoria">
+                   <option value="">Todas as categorias</option>
+                   <option value="Incensos">Incensos</option>
+                   <option value="Pedras">Pedras</option>
+                   <option value="Pingentes">Pingentes</option>
+                   <option value="Anéis">Anéis</option>
+                   <option value="Pulseiras">Pulseiras</option>
+                   <option value="Imagens">Imagens</option>
+                   <option value="Óleos">Óleos</option>
+                   <option value="Essências">Essências</option>
+                   <option value="Incensários">Incensários</option>
+                   <option value="Sinos de Vento">Sinos de Vento</option>
+                   <option value="Colchas">Colchas</option>
+                   <option value="Panos">Panos</option>
+                   <option value="Duendes">Duendes</option>
+                   <option value="Bruxas">Bruxas</option>
+                   <option value="Fadas">Fadas</option>
+                   <option value="Livros">Livros</option>
+                   <option value="Oráculos">Oráculos</option>
+                   <option value="Mandalas">Mandalas</option>
+                   <option value="Prismas">Prismas</option>
+                   <option value="Roupas Indianas">Roupas Indianas</option>
+                   <option value="Fontes">Fontes</option>
+               </select>
+               <input type="text" id="filtroBusca" placeholder="Pesquisar produto...">
+           </div>
        </div>
-       <div id="listaProdutos" class="produto-lista"></div>
+       <div id="listaProdutos" class="produto-lista">
+           <!-- Os produtos serão carregados aqui pelo JavaScript -->
+       </div>
 
        <!-- Modal Editar -->
        <div id="editModal" class="modal">
-    <div class="modal-content">
-        <h2>Editar Produto</h2>
-        <form id="editForm">
-            <select name="categoria_id" required>
-                       <option value="">Selecione uma categoria</option>
-                       <option value="1">Incensos</option>
-                       <option value="2">Pedras</option>
-                       <option value="3">Pingentes</option>
-                       <option value="4">Anéis</option>
-                       <option value="5">Pulseiras</option>
-                       <option value="6">Imagens</option>
-                       <option value="7">Óleos</option>
-                       <option value="8">Essências</option>
-                       <option value="9">Incensários</option>
-                       <option value="10">Sinos de Vento</option>
-                       <option value="11">Colchas</option>
-                       <option value="12">Panos</option>
-                       <option value="13">Duendes</option>
-                       <option value="14">Bruxas</option>
-                       <option value="15">Fadas</option>
-                       <option value="16">Livros</option>
-                       <option value="17">Oráculos</option>
-                       <option value="18">Mandalas</option>
-                       <option value="19">Prismas</option>
-                       <option value="20">Roupas Indianas</option>
-                       <option value="21">Fontes</option>
-                   </select>
-                   <input type="text" name="nome" placeholder="Nome do produto" required>
-            <input type="number" name="preco" placeholder="Preço" step="0.01" required>
-            <input type="number" name="quantidade" placeholder="Estoque" required>
-            <div class="modal-buttons">
-                <button type="submit">Salvar</button>
-                <button type="button" onclick="closeModal()">Cancelar</button>
-            </div>
-        </form>
-    </div>
-</div>
-   <script src="js/produtoLista.js"></script>
-</body>
-</html>
+          <div class="modal-content">
+              <span class="close fechar-modal" onclick="closeModal()">×</span>
+              <h2>Editar Produto</h2>
+              <form id="editForm">
+                  <select name="categoria_id" required="">
+                      <option value="">Selecione uma categoria</option>
+                      <option value="1">Incensos</option>
+                      <option value="2">Pedras</option>
+                      <option value="3">Pingentes</option>
+                      <option value="4">Anéis</option>
+                      <option value="5">Pulseiras</option>
+                      <option value="6">Imagens</option>
+                      <option value="7">Óleos</option>
+                      <option value="8">Essências</option>
+                      <option value="9">Incensários</option>
+                      <option value="10">Sinos de Vento</option>
+                      <option value="11">Colchas</option>
+                      <option value="12">Panos</option>
+                      <option value="13">Duendes</option>
+                      <option value="14">Bruxas</option>
+                      <option value="15">Fadas</option>
+                      <option value="16">Livros</option>
+                      <option value="17">Oráculos</option>
+                      <option value="18">Mandalas</option>
+                      <option value="19">Prismas</option>
+                      <option value="20">Roupas Indianas</option>
+                      <option value="21">Fontes</option>
+                  </select>
+                  <input type="text" name="nome" placeholder="Nome do produto" required="">
+                  <input type="number" name="preco" placeholder="Preço" step="0.01" required="">
+                  <input type="number" name="quantidade" placeholder="Estoque" required="">
+                  <input type="text" name="codigo" placeholder="Código do Produto (opcional)">
+                  
+                  <div class="modal-buttons">
+                      <button type="submit">Salvar</button>
+                      <button type="button" onclick="closeModal()">Cancelar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+   </div>
+   
+   <script src="js/produtoLista.js" defer=""></script>
+
+
+            
+
+
+
+<script src="js/navbar.js"></script></body></html>

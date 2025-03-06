@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo com NavBar Padronizada - PDV Surya</title>
+    
+    <!-- CSS Padronizado -->
+    <link rel="stylesheet" href="../public/css/navbar.css">
+    
+    <!-- CSS específico da página -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            margin-top: 80px; /* Importante: espaço para a navbar fixa */
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Padronizada -->
+    <div class="nav-menu">
+        <a href="../public/index.html">Início</a>
+        <a href="../public/caixa.html">Caixa</a>
+        <a href="../public/produtos.html">Produtos</a>
+        <a href="../public/produtoLista.html">Lista de Produtos</a>
+        <a href="../public/historico.html">Histórico</a>
+        <a href="../public/despesas.html">Despesas</a>
+        <a href="../public/contasPagar.html">Contas a Pagar</a>
+        <a href="../public/listaDeClientes.html">Clientes</a>
+        <a href="../public/listaDeFornecedores.html">Fornecedores</a>
+        <a href="../public/orcamentos.html">Orçamentos</a>
+        <a href="../public/dashboard.html" class="active">Dashboard</a>
+        <a href="../public/relatorios.html">Relatórios</a>
+        
+        <!-- Menu do usuário -->
+        <div class="user-menu">
+            <div class="user-icon">U</div>
+            <div class="dropdown-content">
+                <a href="#" id="botao-sair">Sair</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Conteúdo da página -->
+    <div class="container">
+        <h1>Exemplo de NavBar Padronizada</h1>
+        
+        <div class="card">
+            <h2>Estrutura Básica</h2>
+            <p>Esta página demonstra a estrutura básica de uma página com a navbar padronizada do PDV-Surya.</p>
+            <p>Observe os seguintes pontos importantes:</p>
+            <ul>
+                <li>Link para <code>navbar.css</code> no head</li>
+                <li>Estrutura HTML da navbar com todos os links padrão</li>
+                <li>Espaçamento superior para acomodar a navbar fixa (margin-top)</li>
+                <li>Script <code>navbar.js</code> no final do body</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>Classes CSS Importantes</h2>
+            <ul>
+                <li><code>.nav-menu</code> - Contêiner principal da navbar</li>
+                <li><code>.active</code> - Classe para destacar o link da página atual</li>
+                <li><code>.user-menu</code> - Menu do usuário à direita da navbar</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="../public/js/navbar.js"></script>
+</body>
+</html>

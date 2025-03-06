@@ -1,16 +1,52 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-BR"><head><link rel="stylesheet" href="css/navbar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Surya</title>
     <link rel="stylesheet" href="index.css">
-    <style>
-        
-    </style>
+    
+<script src="/js/auth-utils.js"></script><script src="js/auth-fix.js" defer=""></script>
+<style>
+    /* Estilo para remover sublinhado de links que são botões */
+    a.btn, a.button, a.btn-novo, a.btn-editar, a.btn-excluir, a.btn-action {
+        text-decoration: none !important;
+    }
+    
+    /* Melhorar aparência dos botões */
+    .btn, .button, .btn-novo, .btn-editar, .btn-excluir, .btn-action {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+</style>
 </head>
 <body>
-    <img class="logo-surya" src="img/banner-surya-100.jpg" alt="logo" style="object-fit: cover;">
-    <button onclick="window.location.href='login.html'" class="btn-login">ENTRAR</button>
-</body>
-</html>
+
+<div class="nav-menu">
+    <a href="caixa.html">Caixa</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="produtoLista.html">Lista de Produtos</a>
+    <a href="historico.html">Histórico</a>
+    <a href="despesas.html">Despesas</a>
+    <a href="contasPagar.html">Contas a Pagar</a>
+    <a href="listaDeClientes.html">Clientes</a>
+    <a href="listaDeFornecedores.html">Fornecedores</a>
+    <a href="orcamentos.html">Orçamentos</a>
+    
+    <a href="relatorios.html">Relatórios</a>
+    <div class="user-menu">
+        <div class="user-icon">U</div>
+        <div class="dropdown-content">
+            <a href="#" id="botao-sair">Sair</a>
+        </div>
+    </div>
+</div>
+
+
+    <h1 style="; margin-top: 55px !important;">Programa Para Lojas Esotéricas</h1>
+    <button onclick="window.location.href='login.html'" class="btn-login" type="button">ENTRAR</button>
+
+
+
+<script src="js/navbar.js"></script></body></html>

@@ -4,6 +4,9 @@ body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     
 }
+
+/* Removendo estilos da navbar que entram em conflito com navbar.css */
+/* 
 .nav-menu {
     width: 100%;
     display: flex;
@@ -12,11 +15,10 @@ body {
     background: rgb(0, 0, 8);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     box-sizing: border-box;
-    position: fixed; /* Fixa a navbar no topo */
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-
 }
 
 .nav-menu a {
@@ -26,11 +28,10 @@ body {
 }
 
 .nav-menu a.active {
-    
     color: white;
     border-radius: 4px;
 }
-
+*/
 
 .produtos-container {
     max-width: 800px;
@@ -38,8 +39,6 @@ body {
     padding: 2rem;
 }
 .menu {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
     padding: 1rem;
     margin-bottom: 2rem;
     border-radius: 8px;
@@ -50,8 +49,14 @@ body {
     text-decoration: none;
     padding: 0.8rem 1.5rem;
     background: #3498db;
+    border-radius: 8px;
     display: inline-block;
-    margin-bottom: 20px;
+    transition: background 0.3s;
+    margin-left: 10px;
+}
+
+.btn-lista:hover {
+    background: #2980b9;
 }
 
 .produto-form {
@@ -89,4 +94,22 @@ button {
 
 button:hover {
     background: #2980b9;
+}
+
+/* Estilos adicionais para produtos de parceiros */
+.produto-parceiro {
+    border-left: 4px solid #e74c3c !important;
+    background-color: #fff8f8;
+}
+
+.parceiro {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.comissao {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 5px;
 }

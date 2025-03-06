@@ -1,0 +1,195 @@
+/**
+ * Sistema de temas para PDV-Surya
+ * Suporte para tema claro (padrão) e escuro
+ */
+
+:root {
+  /* Cores base - tema claro (padrão) */
+  --primary-color: #007bff;
+  --primary-dark: #0056b3;
+  --primary-light: #cce5ff;
+  
+  --secondary-color: #6c757d;
+  --secondary-dark: #5a6268;
+  --secondary-light: #e2e3e5;
+  
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  
+  --background-color: #ffffff;
+  --background-alt: #f8f9fa;
+  --background-hover: #e9ecef;
+  
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --text-light: #ffffff;
+  
+  --border-color: #dee2e6;
+  --border-dark: #adb5bd;
+  
+  --shadow-color: rgba(0, 0, 0, 0.125);
+  --shadow: 0 0.125rem 0.25rem var(--shadow-color);
+  --shadow-lg: 0 0.5rem 1rem var(--shadow-color);
+  
+  /* Transições */
+  --transition-time: 0.3s;
+  --transition: all var(--transition-time) ease;
+}
+
+/* Tema escuro */
+[data-theme="dark"] {
+  --primary-color: #0d6efd;
+  --primary-dark: #0a58ca;
+  --primary-light: #1a75ff;
+  
+  --secondary-color: #6c757d;
+  --secondary-dark: #5a6268;
+  --secondary-light: #adb5bd;
+  
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  
+  --background-color: #121212;
+  --background-alt: #1e1e1e;
+  --background-hover: #2c2c2c;
+  
+  --text-color: #f8f9fa;
+  --text-muted: #adb5bd;
+  --text-light: #ffffff;
+  
+  --border-color: #343a40;
+  --border-dark: #495057;
+  
+  --shadow-color: rgba(0, 0, 0, 0.5);
+
+  /* Cores específicas para elementos do dashboard */
+  --nav-bg: #1e1e1e;
+  --card-bg: #1e1e1e;
+  --sidebar-bg: #1e1e1e;
+  --main-content-bg: #121212;
+}
+
+/* Configurações globais para ambos os temas */
+html, body {
+  transition: background-color var(--transition-time) ease, 
+              color var(--transition-time) ease;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Classes de componentes baseados nas variáveis de tema */
+.card {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+}
+
+.alert {
+  color: var(--text-color);
+  background-color: var(--background-alt);
+  border: 1px solid var(--border-color);
+}
+
+.alert-success {
+  background-color: rgba(40, 167, 69, 0.15);
+  border-color: var(--success-color);
+}
+
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.15);
+  border-color: var(--warning-color);
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.15);
+  border-color: var(--danger-color);
+}
+
+.alert-info {
+  background-color: rgba(23, 162, 184, 0.15);
+  border-color: var(--info-color);
+}
+
+/* Estilos específicos para o tema escuro */
+[data-theme="dark"] .table {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: var(--background-alt);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .dropdown-menu {
+  background-color: var(--background-alt);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+  background-color: var(--background-hover);
+}
+
+/* Formulários */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--background-alt);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  background-color: var(--background-hover);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+}
+
+/* Transição suave ao trocar de tema */
+body {
+  transition: var(--transition);
+}

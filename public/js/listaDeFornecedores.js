@@ -1,63 +1,61 @@
+// Função para obter os headers de autenticação
+function getAuthHeaders() {
+    const token = localStorage.getItem('authToken');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : ''
+    };
+}
 // Carregar fornecedores ao iniciar a página
+// listaDeFornecedores.js
 document.addEventListener('DOMContentLoaded', carregarFornecedores);
 
 async function carregarFornecedores() {
     try {
-        const response = await fetch('/api/fornecedores');
+        console.log('Iniciando carregamento de fornecedores...');
+        const response = await fetch('/api/fornecedores', { headers: getAuthHeaders() });
+        console.log('Resposta:', response);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const fornecedores = await response.json();
+        console.log('Fornecedores recebidos:', fornecedores);
+
+        const tableBody = document.getElementById('fornecedoresTableBody');
         
-        // Preenche o select do formulário
-        const selectFormulario = document.getElementById('fornecedor');
-        // Preenche o select do filtro
-        const selectFiltro = document.getElementById('filtro-fornecedor');
-        
-        if (selectFormulario) {
-            selectFormulario.innerHTML = '<option value="">Selecione um Fornecedor</option>';
-            fornecedores.forEach(fornecedor => {
-                selectFormulario.innerHTML += `
-                    <option value="${fornecedor.id}">${fornecedor.razao_social}</option>
-                `;
-            });
+        if (!tableBody) {
+            console.error('Elemento fornecedoresTableBody não encontrado!');
+            return;
         }
 
-        if (selectFiltro) {
-            selectFiltro.innerHTML = '<option value="">Todos os Fornecedores</option>';
-            fornecedores.forEach(fornecedor => {
-                selectFiltro.innerHTML += `
-                    <option value="${fornecedor.id}">${fornecedor.razao_social}</option>
-                `;
-            });
-        }
+        tableBody.innerHTML = '';
+        
+        fornecedores.forEach(fornecedor => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${fornecedor.razao_social}</td>
+                <td>${fornecedor.nome_fantasia || '-'}</td>
+                <td>${fornecedor.cnpj}</td>
+                <td>${fornecedor.telefone}</td>
+                <td>${fornecedor.email || '-'}</td>
+                <td>
+                    <button onclick="editarFornecedor(${fornecedor.id})" class="btn-editar">Editar</button>
+                    <button onclick="excluirFornecedor(${fornecedor.id})" class="btn-excluir">Excluir</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
     } catch (error) {
         console.error('Erro ao carregar fornecedores:', error);
+        alert('Erro ao carregar lista de fornecedores!');
     }
 }
 
-// Busca de fornecedores
-document.getElementById('searchInput').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    const rows = document.getElementById('fornecedoresTableBody').getElementsByTagName('tr');
-
-    Array.from(rows).forEach(row => {
-        const razaoSocial = row.cells[0].textContent.toLowerCase();
-        const nomeFantasia = row.cells[1].textContent.toLowerCase();
-        const cnpj = row.cells[2].textContent.toLowerCase();
-        const telefone = row.cells[3].textContent.toLowerCase();
-        const email = row.cells[4].textContent.toLowerCase();
-        
-        const matches = razaoSocial.includes(searchTerm) || 
-                       nomeFantasia.includes(searchTerm) || 
-                       cnpj.includes(searchTerm) ||
-                       telefone.includes(searchTerm) ||
-                       email.includes(searchTerm);
-        
-        row.style.display = matches ? '' : 'none';
-    });
-});
-
 // Funções para o modal de edição
 function editarFornecedor(id) {
-    fetch(`/api/fornecedores/${id}`)
+    fetch(`/api/fornecedores/${id}`, { headers: getAuthHeaders() })
         .then(response => response.json())
         .then(fornecedor => {
             document.getElementById('editId').value = fornecedor.id;
@@ -75,8 +73,20 @@ function editarFornecedor(id) {
         });
 }
 
+// Adicionar esse trecho no seu listaDeFornecedores.js
+document.querySelector('.close').addEventListener('click', fecharModal);
+
 function fecharModal() {
-    document.getElementById('editModal').style.display = 'none';
+    const modal = document.getElementById('editModal');
+    modal.style.display = 'none';
+}
+
+// Fechar modal quando clicar fora dele
+window.onclick = function(event) {
+    const modal = document.getElementById('editModal');
+    if (event.target == modal) {
+        fecharModal();
+    }
 }
 
 // Atualizar fornecedor
@@ -146,7 +156,8 @@ formatarCampos();
 function excluirFornecedor(id) {
     if (confirm('Tem certeza que deseja excluir este fornecedor?')) {
         fetch(`/api/fornecedores/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: getAuthHeaders()
         })
         .then(response => response.json())
         .then(result => {

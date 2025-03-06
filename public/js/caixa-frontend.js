@@ -1,3 +1,12 @@
+
+// Função para obter os headers de autenticação
+function getAuthHeaders() {
+    const token = localStorage.getItem('authToken');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : ''
+    };
+}
 // Variável para armazenar a venda atual
 let vendaAtual = {
     itens: [],
@@ -16,7 +25,7 @@ async function adicionarProduto() {
 
     try {
         // Busca o produto no backend
-        const response = await fetch(`/api/produtos/busca?termo=${produtoBusca}`);
+        const response = await fetch(`/api/produtos/busca?termo=${produtoBusca}`, { headers: getAuthHeaders() });
         const produtos = await response.json();
 
         if (produtos.length === 0) {
@@ -85,7 +94,7 @@ function finalizarVenda() {
             itens: vendaAtual.itens,
             formaPagamento: formaPagamento,
             valorPago: valorPago
-        })
+        }, { headers: getAuthHeaders() })
     })
     .then(response => response.json())
     .then(data => {

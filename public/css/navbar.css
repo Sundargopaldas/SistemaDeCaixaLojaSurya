@@ -1,0 +1,133 @@
+/**
+ * navbar.css - Estilos padronizados para a navbar do PDV-Surya
+ * Versão: 2.1 - Centralização com pseudo-elementos para distribuição
+ */
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estrutura base da navbar */
+.nav-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 50px !important;
+    background-color: rgb(0, 0, 8) !important;
+    z-index: 9999 !important;
+    padding: 0 60px !important; /* Padding igual dos dois lados */
+    display: flex !important; /* Usar flexbox */
+    justify-content: center !important; /* Centralizar horizontalmente */
+    align-items: center !important; /* Centralizar verticalmente */
+    white-space: nowrap !important;
+}
+
+/* Links principais da navbar */
+.nav-menu > a:not(.dropdown-content a) {
+    display: flex !important;
+    align-items: center !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 0 12px !important;
+    height: 50px !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    font-size: 14px !important;
+    transition: background-color 0.3s !important;
+}
+
+/* Efeito hover nos links */
+.nav-menu > a:hover:not(.dropdown-content a) {
+    background-color: #333 !important;
+}
+
+/* Link ativo */
+.nav-menu a.active, 
+.nav-menu a.highlight-nav {
+    background-color: #2196F3 !important;
+    color: white !important;
+}
+
+/* Menu do usuário - posicionado à direita */
+.nav-menu .user-menu {
+    position: absolute !important;
+    right: 15px !important;
+    top: 0 !important;
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 14px !important; /* Restaura o tamanho da fonte */
+}
+
+/* Ícone do usuário */
+.user-icon {
+    background-color: #3498db !important;
+    color: white !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+/* Dropdown do menu do usuário */
+.dropdown-content {
+    display: none;
+    position: absolute !important;
+    right: 0 !important;
+    top: 50px !important;
+    background-color: #f9f9f9 !important;
+    min-width: 120px !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) !important;
+    z-index: 10000 !important;
+    border-radius: 4px !important;
+    text-align: left !important;
+}
+
+/* Mostrar dropdown ao passar o mouse */
+.user-menu:hover .dropdown-content {
+    display: block !important;
+}
+
+/* Links dentro do dropdown */
+.dropdown-content a {
+    color: black !important;
+    padding: 10px 15px !important;
+    text-decoration: none !important;
+    display: block !important;
+    text-align: left !important;
+    height: auto !important;
+    line-height: normal !important;
+    font-size: 14px !important;
+}
+
+/* Hover nos links do dropdown */
+.dropdown-content a:hover {
+    background-color: #f1f1f1 !important;
+    border-radius: 4px !important;
+}
+
+/* Ajuste para o conteúdo da página */
+body {
+    padding-top: 50px !important; /* Espaço para a navbar fixa */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-menu {
+        text-align: left !important;
+        overflow-x: auto !important;
+        padding-right: 50px !important; /* Ajuste para telas menores */
+    }
+    
+    .nav-menu > a:not(.dropdown-content a) {
+        padding: 0 10px !important;
+        font-size: 13px !important;
+    }
+}
